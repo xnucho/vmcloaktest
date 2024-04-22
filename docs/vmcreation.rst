@@ -114,7 +114,7 @@ See the example below for its help page.
       --network TEXT         The network to use in CIDR notation. Example:
                              192.168.30.0/24. Uses VM platform default if not
                              given.
-      --port INTEGER         Port to run the Agent on.  [default: 8000]
+      --port INTEGER         Port to run the Agent on.  [default: 8000] Define a port other than 8000 when creating a VM for CAPEv2
       --ip TEXT              Guest IP address to use
       --iso TEXT             Specify install ISO to use.
       --vm TEXT              Virtual Machinery.  [default: qemu]
@@ -128,6 +128,12 @@ The install might be frozen, etc. We will be making an image called 'win10base' 
   vmcloak --debug init --win10x64 --hddsize 128 --cpus 2 --ramsize 4096 --network 192.168.30.0/24 --vm qemu --vrde --vrde-port 1 --ip 192.168.30.2 --iso-mount /mnt/win10x64 win10base qemubr0
 
 This command can take a long time to complete depending on your system (20-60 minutes).
+
+If you are using VMCloak to setup a QEMU VM for CAPEv2 define a port other than 8000. The port 8000 is going to be used by the CAPE agent.
+
+.. code-block:: bash
+
+  vmcloak --debug init --port 8111 --win10x64 --hddsize 128 --cpus 2 --ramsize 4096 --network 192.168.30.0/24 --vm qemu --vrde --vrde-port 1 --ip 192.168.30.2 --iso-mount /mnt/win10x64 win10base qemubr0
 
 When the command finishes, the image should be available in the list of images.
 View the list of images and their attributes using:

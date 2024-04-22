@@ -162,9 +162,14 @@ class OperatingSystem(object):
         # Copy the agent binary to the tmp bootstrap folder with the extension
         # it should have, but using a normalized name.
         agent_name = f"{random_string(8, 16)}{file_ext}"
+        agent_name_cape = f"{random_string(8, 16)}.pyw"
+        agent_path_cape = os.path.splitext(agent_path)[0]+'.pyw'
         shutil.copy(agent_path, os.path.join(bootstrap_copy, agent_name))
+        shutil.copy(agent_path_cape, os.path.join(bootstrap_copy, agent_name_cape))
         env_vars["AGENT_FILE"] = agent_name
+        env_vars["AGENT_FILE_CAPE"] = agent_name_cape
         env_vars["AGENT_RUNKEY"] = random_string(8, 16)
+        env_vars["AGENT_RUNKEY_CAPE"] = random_string(8, 16)
 
         # Write the configuration values for bootstrap.bat.
         with open(os.path.join(bootstrap_copy, "settings.bat"), "wb") as f:

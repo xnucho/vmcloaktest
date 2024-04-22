@@ -58,7 +58,8 @@ def _make_pre_v41_args(attr):
         "-device", "ide-cd,bus=ahci.1,unit=0,drive=cdrom,bootindex=1",
         "-device", "usb-ehci,id=ehci",
         "-device", "usb-tablet,bus=ehci.0",
-        "-soundhw", "hda",
+        "-device", "intel-hda",
+        "-device", "hda-duplex",
         "--enable-kvm"
     ]
 
@@ -82,7 +83,8 @@ def _make_post_v41_args(attr):
         "-device", "ide-cd,bus=ahci.1,unit=0,drive=cdrom,bootindex=1",
         "-device", "usb-ehci,id=ehci",
         "-device", "usb-tablet,bus=ehci.0",
-        "-soundhw", "hda",
+        "-device", "intel-hda",
+        "-device", "hda-duplex",
         "-enable-kvm"
     ]
 
@@ -227,12 +229,7 @@ def create_snapshot(name):
     # Stop the machine so the memory does not change while making the
     # memory snapshot.
     m.stdin.write(b"stop\n")
-    m.stdin.write(b"migrate_set_speed 1G\n")
-    # Send the actual memory snapshot command. The args helper tries to find
-    # lz4 of gzip binaries so we can compress the dump.
-    m.stdin.write(
-        f"migrate \"exec:{_get_exec_args(snapshot_path)}\"\n".encode()
-    )
+    m.stdin.write(b"savevm myawesomesnapshot\n")
     m.stdin.write(b"quit\n")
     log.debug("Flushing snapshot commands to qemu.")
     m.stdin.flush()
