@@ -296,6 +296,13 @@ class VcRedist(Dependency):
             "https://hatching.dev/hatchvm/vcredist2019_x64.exe",
         ],
         "sha1": "de385d69864413400250f2f3fe9f4aec78eb997b"
+    },{
+        "version": "2022",
+        "arch": "amd64",
+        "urls": [
+            "https://aka.ms/vs/17/release/vc_redist.x64.exe",
+        ],
+        "sha1": "046f00c519900fcbf2e6e955fc155b11156a733b"
     }]
 
     #
