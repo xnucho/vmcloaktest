@@ -68,15 +68,19 @@ class DotNet(Dependency):
             "https://cuckoo.sh/vmcloak/NDP47-KB3186497-x86-x64-AllOS-ENU.exe",
         ],
         "sha1": "76054141a492ba307595250bda05ad4e0694cdc3",
-    },
-        {
+    }, {
             "version": "4.7.2",
             "urls": [
                 "https://hatching.io/hatchvm/NDP472-KB4054530-x86-x64-AllOS-ENU.exe",
             ],
             "sha1": "31fc0d305a6f651c9e892c98eb10997ae885eb1e",
-        }
-    ]
+    }, {
+            "version": "4.8.1",
+            "urls": [
+                "https://download.microsoft.com/download/4/b/2/cd00d4ed-ebdd-49ee-8a33-eabc3d1030e3/NDP481-x86-x64-AllOS-ENU.exe",
+            ],
+            "sha1": "6ae30bfbd5c588e73c18f89cad26425835a3541e",
+    }]
 
     def run(self):
         self.upload_dependency("C:\\setup.exe")
