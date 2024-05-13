@@ -22,7 +22,8 @@ class VcRedist(Dependency):
         "2012": "/passive /norestart",
         "2013": "/passive /norestart",
         "2015": "/passive /norestart",
-        "2019": "/qb /quiet /norestart"
+        "2019": "/qb /quiet /norestart",
+        "2022": "/qb /quiet /norestart"
     }
 
     exes = [{
