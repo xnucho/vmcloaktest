@@ -22,7 +22,8 @@ class VcRedist(Dependency):
         "2012": "/passive /norestart",
         "2013": "/passive /norestart",
         "2015": "/passive /norestart",
-        "2019": "/qb /quiet /norestart"
+        "2019": "/qb /quiet /norestart",
+        "2022": "/qb /quiet /norestart"
     }
 
     exes = [{
@@ -296,6 +297,13 @@ class VcRedist(Dependency):
             "https://hatching.dev/hatchvm/vcredist2019_x64.exe",
         ],
         "sha1": "de385d69864413400250f2f3fe9f4aec78eb997b"
+    },{
+        "version": "2022",
+        "arch": "amd64",
+        "urls": [
+            "https://aka.ms/vs/17/release/vc_redist.x64.exe",
+        ],
+        "sha1": "046f00c519900fcbf2e6e955fc155b11156a733b"
     }]
 
     #

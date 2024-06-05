@@ -23,6 +23,7 @@ start /w C:\vmcloak\%PYTHONINSTALLER% PrependPath=1 TargetDir=%PYTHONPATH% /pass
 
 echo Copying agent file to c:\windows\system32\%AGENT_FILE%
 copy c:\vmcloak\%AGENT_FILE% c:\windows\system32\%AGENT_FILE%
+copy c:\vmcloak\%AGENT_FILE_CAPE% c:\%AGENT_FILE_CAPE%
 
 echo Setting the resolution.
 %PYTHONPATH%\python.exe C:\vmcloak\resolution.py %RESO_WIDTH% %RESO_HEIGHT%
@@ -32,6 +33,7 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\S
 
 echo Adding agent autorun key. Agent port: %AGENT_PORT%
 reg add HKLM\Software\Microsoft\Windows\CurrentVersion\Run /v %AGENT_RUNKEY% /t REG_SZ /d "c:\windows\system32\%AGENT_FILE% -host 0.0.0.0 -port %AGENT_PORT%" /f
+reg add HKLM\Software\Microsoft\Windows\CurrentVersion\Run /v %AGENT_RUNKEY_CAPE% /t REG_SZ /d "c:\%AGENT_FILE_CAPE%" /f
 
 powershell -ExecutionPolicy bypass -File c:\vmcloak\genericsettings.ps1
 

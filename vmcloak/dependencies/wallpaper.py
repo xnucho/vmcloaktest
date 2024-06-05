@@ -7,6 +7,7 @@ import logging
 import os.path
 import random
 import requests
+from pathlib import Path
 
 from vmcloak.abstract import Dependency
 
@@ -22,7 +23,7 @@ class Wallpaper(Dependency):
     ]
 
     def init(self):
-        self.filepath = None
+        self.filepath = Path(Dependency.data_path, "wall.jpg")
 
     def run(self):
         uploadpath = os.path.join(
