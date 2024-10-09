@@ -9,12 +9,11 @@ from vmcloak.abstract import Dependency
 
 class Chrome(Dependency):
     name = "chrome"
-    default = "46.0.2490.80"
+    default = "109.0.5414.165"
     tags = ["browser_chrome"]
     exes = [{
-        "version": "46.0.2490.80",
-        "url": "https://cuckoo.sh/vmcloak/googlechromestandaloneenterprise.msi",
-        "sha1": "a0ade494dda8911eeb68c9294c2dd0e3229d8f02",
+        "version": "109.0.5414.165",
+        "url": "https://archive.org/download/chrome-109-Win7-8/Chrome%20109%20%28Enterprise%29%20x64.msi",
     }, {
         "version": "latest",
         "arch": "x86",
