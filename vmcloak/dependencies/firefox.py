@@ -7,12 +7,14 @@ from vmcloak.abstract import Dependency
 
 class Firefox(Dependency):
     name = "firefox"
-    default = "128.3.0esr"
+    default = "115.16.0esr"
     tags = ["browser_firefox"]
     exes = [{
+        "version": "115.16.0esr",
+        "url": "https://ftp.mozilla.org/pub/firefox/releases/115.16.0esr/win64/en-US/Firefox%20Setup%20115.16.0esr.msi",
+    },{
         "version": "128.3.0esr",
-        "url": "https://download.mozilla.org/?product=firefox-esr-msi-latest-ssl&os=win64&lang=en-US",
-        "sha1": "c5118ca76f0cf6ecda5d2b9292bf191525c9627a",
+        "url": "https://ftp.mozilla.org/pub/firefox/releases/128.3.0esr/win64/en-US/Firefox%20Setup%20128.3.0esr.msi",
     }]
 
     def run(self):
